@@ -1,0 +1,8 @@
+[Search mode]
+search_text = False
+# search_url = False
+# is search_text == True, then search_url == False and vice versa
+search_text_word = kuze
+search_text_url = https://www.imago.cz/caje-bylinky
+
+
