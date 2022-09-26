@@ -32,16 +32,16 @@ class AllItemsPage:
         else:
             return 0
 
-    @property
-    def next_page_link(self) -> str:
-        """ Returns a link for the next search result page.
-            Does not matter how many pages there are, it always return the next one. """
-
-        locator = 'div#pagination_bottom > div.links > a.pagination-item'
-        next_page_obj = self.soup_page.select_one(locator)
-        next_page_link = next_page_obj.get('href')
-
-        return next_page_link
+    # @property - go to Basepage
+    # def next_page_link(self) -> str:
+    #     """ Returns a link for the next search result page.
+    #         Does not matter how many pages there are, it always return the next one. """
+    #
+    #     locator = 'div#pagination_bottom > div.links > a.pagination-item'
+    #     next_page_obj = self.soup_page.select_one(locator)
+    #     next_page_link = next_page_obj.get('href')
+    #
+    #     return next_page_link
 
 
 class ItemParser:

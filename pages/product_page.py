@@ -6,15 +6,19 @@ class ProductPage:
     """ Product Page of the particular item. Main focus here is to find the dice-code
         within the product area. """
 
-    def __init__(self, page_content):
+    def __init__(self, page_content,method):
         self.soup_page = BeautifulSoup(page_content, 'html.parser')
+        self.method = method
 
     @property
     def dice_code(self):
         """ Only think that we need on the Product Page is, whether it contains the dice code or not.
             If yes, then we want the code.  """
 
-        locator = 'div.product_detail'
+        if self.method == 'blog':
+            locator = '#bodycontainer > div.row.border-top-blog'  # todo - better
+        else:
+            locator = 'div.product_detail'
 
         try:
             desired_div_with_text = self.soup_page.select_one(locator)  # finds first paragraph with the product

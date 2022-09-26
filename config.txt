@@ -1,8 +1,11 @@
 [Search mode]
-search_text = False
+search_method = blog
+# text, url
+# search_text = False
 # search_url = False
-# is search_text == True, then search_url == False and vice versa
+# search_blog = True
 search_text_word = kuze
 search_text_url = https://www.imago.cz/caje-bylinky
 
-
+[Known Codes]
+codes = K10XZ41WDP, K8XYTMNRXW, K6XB65H59Q, K10XDCBP3F, K4X1NITQVK, K12XJFAPLJ,K6XAFXNTDU, K8XXXHCX4V, K4XPB8GZ12, K12XNTN7YS, K6XR8MTIF8, K10XPR5EBA,K12XRP58UP, K10XF51HBD, K6XA53RC6R
