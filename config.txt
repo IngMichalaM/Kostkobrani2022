@@ -1,11 +1,22 @@
 [Search mode]
-search_method = blog
-# text, url
-# search_text = False
-# search_url = False
-# search_blog = True
-search_text_word = kuze
-search_text_url = https://www.imago.cz/caje-bylinky
+search_method = url
+search_text_word = jeskyne a draci
+search_text_url = https://www.imago.cz/medovina
 
 [Known Codes]
-codes = K10XZ41WDP, K8XYTMNRXW, K6XB65H59Q, K10XDCBP3F, K4X1NITQVK, K12XJFAPLJ,K6XAFXNTDU, K8XXXHCX4V, K4XPB8GZ12, K12XNTN7YS, K6XR8MTIF8, K10XPR5EBA,K12XRP58UP, K10XF51HBD, K6XA53RC6R
+codes = K10XZ41WDP, K8XYTMNRXW, K6XB65H59Q, K10XDCBP3F, K4X1NITQVK, K12XJFAPLJ,K6XAFXNTDU, K8XXXHCX4V, K4XPB8GZ12, K12XNTN7YS, K6XR8MTIF8, K10XPR5EBA,K12XRP58UP, K10XF51HBD, K6XA53RC6R,  K10XYP12BF, K8X935JX6X, K20X74Q6YJ, K20XDG9P8U, K8XP9WFEAG, K4XY4FV4DU, K12XE63FY9, K4X4VCZBPG, K6XTVH2AXS
+
+[Code problem]
+enable = False
+pattern = Gratulujeme
+
+
+# Search mode available: text, url, blog
+#                    text - the text will be used in the search input filed (write teh string in "search_text_word")
+#                    url - the particular Product Listing Page will be searched through (variable "search_text_url")
+#                    blog - the whole blog will be search through
+#
+# Code problem: Use this feature in case you are not looking for the dice code itself,
+# but rather for a specific sentence or word
+#                    Switch on/off: False / True
+#                    The word/sentence that you are looking for: pattern (e.g.: Gratulujeme / Jste na lovu kostek)

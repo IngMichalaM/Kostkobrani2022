@@ -6,17 +6,19 @@ class ProductPage:
     """ Product Page of the particular item. Main focus here is to find the dice-code
         within the product area. """
 
-    def __init__(self, page_content,method):
+    def __init__(self, page_content,method, dice_code_part: tuple):
         self.soup_page = BeautifulSoup(page_content, 'html.parser')
         self.method = method
+        self.dice_code_part, self.part_pattern = dice_code_part
 
     @property
     def dice_code(self):
-        """ Only think that we need on the Product Page is, whether it contains the dice code or not.
+        """ Only thing that we need on the Product Page is, whether it contains the dice code or not.
             If yes, then we want the code.  """
 
         if self.method == 'blog':
-            locator = '#bodycontainer > div.row.border-top-blog'  # todo - better
+            # The blog pages are different from the Product Page
+            locator = '#bodycontainer > div.row.border-top-blog'  # todo - better locator
         else:
             locator = 'div.product_detail'
 
@@ -25,10 +27,20 @@ class ProductPage:
                                                                         # description
             # desired_div_with_text = self.soup_page.select(locator) # there are actually three paragraphs,
                                                                      # but only the first one is of interest
-            # look for the dice code within it. A list can be returned
-            dice_codes = self.find_dice_expression(desired_div_with_text)
 
-            return dice_codes
+            # look for the dice code within it. A list can be returned
+
+            # Look through the parent element and find the expression about the dice search: 'Jste na lovu kostek' """
+            if self.dice_code_part:
+                if self.part_pattern in str(desired_div_with_text):
+                    return True
+                else:
+                    return []
+            else:
+                # print('Looking for whole dice code .')
+                dice_codes = self.find_dice_expression(desired_div_with_text)
+
+                return dice_codes
 
         except AttributeError:
             return None
@@ -50,7 +62,7 @@ class ProductPage:
             else:
                 return []
 
-        # todo: now the opposit can maybe happen and we would need to check if the string contains any numbers
+        # todo: now the opposite can maybe happen and we would need to check if the string contains any numbers
         #       will desl with it when it comes.
 
     def contains_capital_letter(self, expression: str) -> bool:
